@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% autoescape false %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web安全实验</title>
+  </head>
+
+  <body>
+
+    <!-- Header -->
+    <header>
+      <h1>Web安全实验</h1>
+      <p>你可以查询并且发布评论</p>
+      {% if user %}
+        <p>当前用户：{{ user }}</p>
+      {% else %}
+        <p>当前未登录</p>
+      {% endif %}
+    </header>
+
+    <a href="login" onclick=""><button>登录</button></a> 
+    <a href="logout" onclick=""><button>登出</button></a>
+    <a href="http://localhost:5000" onclick=""><button>第三方站点</button></a>
+
+    {% if message %}
+      <p style="color:Tomato;"><strong>{{ message }}</strong></p>
+    {% endif %}
+
+    <p></p>
+    
+    <!-- Search form -->
+    <form method="GET">
+      <input type="text" name="q" 
+             placeholder="搜索内容" autocomplete="off" />
+      <input type="submit" value="提交" />
+    </form>
+
+    <!-- Comments -->
+    {% if not search_query %}
+      <h3>所有的评论如下:</h3>
+    {% else %}
+      <h3>包含 "{{ search_query }}" 评论如下:</h3>
+    {% endif %}
+
+    {% for username, comment in comments %}
+      <div>
+        {% if username %}
+          <p> 评论者：{{username }} 内容：{{comment }}</p>
+        {% else %}
+        <p> 评论者：匿名 内容：{{comment }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <!-- Write form -->
+    <form action="/" method="POST">
+      <input type="text" name="comment" 
+             placeholder="评论" autocomplete="off" />
+      {% if token %}
+        <input type="hidden" name="csrf_token" value="{{ token }}" />
+      {% endif %}
+      <input type="submit" value="提交新评论" />
+    </form>
+
+  </body>
+</html>
+{% endautoescape %}

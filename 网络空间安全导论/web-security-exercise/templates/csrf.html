@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% autoescape false %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSRF网站</title>
+  </head>
+
+  <body>
+    <form action="http://127.0.0.1:5000" method="POST">
+      <input type="hidden" name="comment" value="CSRF 跨站攻击" />
+      <input type="submit" value="点击获取学习资料" />
+    </form>
+  </body>
+</html>
+{% endautoescape %}

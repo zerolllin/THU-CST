@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "chrono": "cpp",
+        "semaphore": "cpp",
+        "stop_token": "cpp",
+        "random": "cpp",
+        "memory": "cpp",
+        "thread": "cpp"
+    }
+}
