@@ -65,11 +65,11 @@ int main() {
 
    反汇编恶意攻击函数，得到攻击者希望调用的恶意函数地址为：0x08049186
 
-   <img src="pics/image-20240623100739421.png" alt="image-20240623100739421" style="zoom:80%;" align="left"/>
+   <img src="pics/image-20240623100739421.png" alt="image-20240623100739421" style="zoom:80%;"/>
 
    反汇编接受输入的 func 函数，得到调用 fscanf 时，接受输入的 str 数组的位置与栈帧中的 ebp 之间的距离为  0x12：
 
-   <img src="pics/image-20240623101015690.png" alt="image-20240623101015690" style="zoom:80%;" align="left"/>
+   <img src="pics/image-20240623101015690.png" alt="image-20240623101015690" style="zoom:80%;"/>
 
    ```assembly
    Dump of assembler code for function _Z4funcv:
@@ -100,11 +100,11 @@ int main() {
 
 3. **构造恶意输入**
 
-   <img src="pics/image-20240623100622906.png" alt="image-20240623100622906" style="zoom:80%;" align="left"/>
+   <img src="pics/image-20240623100622906.png" alt="image-20240623100622906" style="zoom:80%;"/>
 
 ### 实验效果
 
-<img src="pics/image-20240623101542167.png" alt="image-20240623101542167" style="zoom:80%;" align="left"/>
+<img src="pics/image-20240623101542167.png" alt="image-20240623101542167" style="zoom:80%;"/>
 
 利用构造的恶意输入，可以看到我们成功完成了程序的控制流劫持，调用了恶意攻击函数。
 

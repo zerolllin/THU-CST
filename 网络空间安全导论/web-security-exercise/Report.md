@@ -18,7 +18,7 @@
 
    在查询框输入 `<script> alert(1); </script>` 可进行反射型 XSS 攻击，点击搜索后页面中出现弹窗，此时诱导用户点击这一查询结果链接，即可触发恶意脚本执行。
 
-   <img src="pics/image-20240610100337826.png" alt="image-20240610100337826" style="zoom:67%;" align="left"/>
+   <img src="pics/image-20240610100337826.png" alt="image-20240610100337826" style="zoom:67%;"/>
 
    
 
@@ -26,7 +26,7 @@
 
    在下方评论框添加新的评论 `<script> alert(1); </script>` 可进行持久型 XSS 攻击。恶意代码被写入了数据库中，所有用户在查看评论时都会触发恶意脚本执行。
 
-   <img src="pics/image-20240610100422392.png" alt="image-20240610100422392" style="zoom:67%;" align="left"/>
+   <img src="pics/image-20240610100422392.png" alt="image-20240610100422392" style="zoom:67%;"/>
 
 3. **XSS 攻击的防范**
 
@@ -45,11 +45,11 @@
    
    此时可以前端可以在转义后正常渲染包含可执行脚本的字符串：
    
-   <img src="pics/image-20240610100541998.png" alt="image-20240610100541998" style="zoom:60%;" align="left"/>
+   <img src="pics/image-20240610100541998.png" alt="image-20240610100541998" style="zoom:60%;"/>
    
-   <img src="pics/image-20240610100523817.png" alt="image-20240610100523817" style="zoom:75%;" align="left"/>
+   <img src="pics/image-20240610100523817.png" alt="image-20240610100523817" style="zoom:75%;"/>
    
-   <img src="pics/image-20240610100720182.png" alt="image-20240610100720182" style="zoom:60%;" align="left"/>
+   <img src="pics/image-20240610100720182.png" alt="image-20240610100720182" style="zoom:60%;"/>
 
 ### SQL 注入攻击与防御
 
@@ -57,11 +57,11 @@
 
    为网站增加登录功能，通过验证用户名和密码进行登录，登陆后发布评论可以显示用户名。
 
-   <img src="pics/image-20240610100942920.png" alt="image-20240610100942920" style="zoom:63%;" align="left"/>
+   <img src="pics/image-20240610100942920.png" alt="image-20240610100942920" style="zoom:63%;"/>
 
    利用在数据库中设置的用户名 "zero"，密码 "123456" 登录后，可以提交署名评论：
 
-   <img src="pics/image-20240610101042502.png" alt="image-20240610101042502" style="zoom:60%;" align="left"/>
+   <img src="pics/image-20240610101042502.png" alt="image-20240610101042502" style="zoom:60%;"/>
 
    登录时验证用户名和密码的 SQL 语句为如下形式：
 
@@ -75,11 +75,11 @@
    SELECT username FROM users WHERE username='zero';--' AND password='{any}'
    ```
 
-   <img src="pics/image-20240610101133216.png" alt="image-20240610101133216" style="zoom:60%;" align="left"/>
+   <img src="pics/image-20240610101133216.png" alt="image-20240610101133216" style="zoom:60%;"/>
 
    由于输入的 `--` 使 SQL 语句对密码的检查部分变成了注释，此时查询的 SQL 语句仅检查用户名，因此可以使用任意密码正常登录，并发表署名评论：
 
-   <img src="pics/image-20240610101503168.png" alt="image-20240610101503168" style="zoom:60%;" align="left"/>
+   <img src="pics/image-20240610101503168.png" alt="image-20240610101503168" style="zoom:60%;"/>
 
 2. **防御**
 
@@ -94,7 +94,7 @@
 
    此时在 UNSAFE = False 模式下运行，这一攻击方式已经不再生效：
 
-   <img src="pics/image-20240610101730485.png" alt="image-20240610101730485" style="zoom:60%;" align="left"/>
+   <img src="pics/image-20240610101730485.png" alt="image-20240610101730485" style="zoom:60%;"/>
 
 
 
@@ -104,7 +104,7 @@
 
    为了便于演示跨站请求攻击，将 localhost 这一域名作为第三方网站。该网站含有隐藏表单，点击按钮时，会向 127.0.0.1 域名下的网站发送跨站请求添加新评论：
 
-   <img src="pics/image-20240610102402832.png" alt="image-20240610102402832" style="zoom:64%;" align="left"/>
+   <img src="pics/image-20240610102402832.png" alt="image-20240610102402832" style="zoom:64%;"/>
 
    ```html
    <!DOCTYPE html>
@@ -127,7 +127,7 @@
 
    在 UNSAFE 模式下运行，可以看到在用户登录和非登录的情况下，跨站请求均被成功发送：
 
-   <img src="pics/image-20240610102524395.png" alt="image-20240610102524395" style="zoom:60%;" align="left"/>
+   <img src="pics/image-20240610102524395.png" alt="image-20240610102524395" style="zoom:60%;"/>
 
    
 
@@ -193,4 +193,4 @@
 
    采用此防御机制后，再次从第三方站点发送跨站表单，可以看到此时对 CSRF Token 进行检查后，服务器成功阻止了此跨站请求：
 
-   <img src="pics/image-20240610103342240.png" alt="image-20240610103342240" style="zoom:60%;" align="left"/>
+   <img src="pics/image-20240610103342240.png" alt="image-20240610103342240" style="zoom:60%;"/>

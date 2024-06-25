@@ -151,9 +151,9 @@ int main() {
 
 实现的 Spectre 攻击程序可以成功读取字符串 secret 中的敏感数据：
 
-<img src="pics/image-20240609092419377.png" alt="image-20240609092419377" style="zoom:80%;" align="left"/>
+<img src="pics/image-20240609092419377.png" alt="image-20240609092419377" style="zoom:80%;"/>
 
-<img src="pics/image-20240609092403735.png" alt="image-20240609092403735" style="zoom:70%;" align="left"/>
+<img src="pics/image-20240609092403735.png" alt="image-20240609092403735" style="zoom:70%;"/>
 
 ### 参考资料
 

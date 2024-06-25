@@ -43,7 +43,7 @@
       - 无需读取内存，根据 cflush 时间判断
         - 如果数据没在 Cache 中则 clflush 指令执行时间会比较短，反之若有数据在 Cache 中则执行时间会比较长
 
-    <img src="assets/image-20240608154933295.png" alt="image-20240608154933295" style="zoom:90%;" align="left"/>
+    <img src="assets/image-20240608154933295.png" alt="image-20240608154933295" style="zoom:90%;" />
 
 ### 硬件防护技术
 

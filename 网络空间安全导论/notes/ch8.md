@@ -69,7 +69,7 @@
 
 #### 典型案例分析
 
-<img src="assets/image-20240610211206261.png" alt="image-20240610211206261" style="zoom:80%;" align="left"/>
+<img src="assets/image-20240610211206261.png" alt="image-20240610211206261" style="zoom:80%;" />
 
 - 交互信息泄露
   - IPID侧信道引起的TCP劫持攻击

@@ -32,7 +32,7 @@
 
 3. **Stack Canary**：在保存的栈帧基地址（EBP）之后插入一段信息，当函数返回时验证这段信息是否被修改过
 
-   <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240608211250079.png" alt="image-20240608211250079" style="zoom:40%;" align="left"/>
+   <img src="C:\Users\zhang\AppData\Roaming\Typora\typora-user-images\image-20240608211250079.png" alt="image-20240608211250079" style="zoom:40%;"/>
 
 4. **SMAP, SMEP**：两种基础的内存隔离技术
    - SMAP（Supervisor Mode Access Prevention，管理模式访问保护）禁止内核访问用户空间的数据
